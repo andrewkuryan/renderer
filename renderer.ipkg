@@ -1,0 +1,19 @@
+package renderer
+
+version     = 0.1.0
+brief       = "Typesafe HTML static renderer"
+authors     = "Andrew Kuryan"
+homepage    = ""
+license     = "GPL-3.0"
+
+sourcedir   = "src"
+builddir    = "build"
+
+depends     = base >= 0.6.0
+
+modules     = Renderer.Render,
+              Renderer.Utils.List,
+              Renderer.HTML.AttributesList,
+              Renderer.HTML.AttributeValue,
+              Renderer.HTML.HTMLAttribute,
+              Renderer.HTML.Elements
