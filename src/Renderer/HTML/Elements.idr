@@ -3,11 +3,14 @@ module Renderer.HTML.Elements
 import Data.List
 import Data.String
 
-import Renderer.Utils.List
-import Renderer.HTML.HTMLAttributeValue
-import Renderer.HTML.HTMLAttribute
-import Renderer.HTML.HTMLAttributesList
-import Renderer.CSS.Style
+import public Renderer.Utils.List
+import public Renderer.HTML.HTMLAttributeValue
+import public Renderer.HTML.HTMLAttribute
+import public Renderer.HTML.HTMLAttributesList
+import public Renderer.CSS.StyleAttributeValue
+import public Renderer.CSS.StyleAttribute
+import public Renderer.CSS.StyleAttributesList
+import public Renderer.CSS.Style
 
 public export
 data HTMLElement = 
