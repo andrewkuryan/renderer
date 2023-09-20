@@ -1,7 +1,9 @@
 module Renderer.CSS.Style
 
+import Data.List
 import Data.String
 
+import Renderer.Utils.List
 import Renderer.CSS.StyleAttributeValue
 import Renderer.CSS.StyleAttribute
 import Renderer.CSS.StyleAttributesList

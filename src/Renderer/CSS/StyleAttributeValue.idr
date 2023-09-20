@@ -16,5 +16,9 @@ public export
 infixr 10 @=
 
 public export
+valueName: StyleAttributeValue -> String
+valueName (MkStyleAttributeValue name _ _) = name
+
+public export
 valueToPair: StyleAttributeValue -> (String, Type)
 valueToPair (MkStyleAttributeValue name type _) = (name, type)
