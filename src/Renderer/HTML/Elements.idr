@@ -47,3 +47,19 @@ h3 = buildElement "h3" HTMLElementAttributes
 h4 = buildElement "h4" HTMLElementAttributes
 h5 = buildElement "h5" HTMLElementAttributes
 h6 = buildElement "h6" HTMLElementAttributes
+
+p = buildElement "p" HTMLElementAttributes
+
+em = buildElement "em" HTMLElementAttributes
+i = buildElement "i" HTMLElementAttributes
+strong = buildElement "strong" HTMLElementAttributes
+b = buildElement "b" HTMLElementAttributes
+
+AElementAttributes = HTMLElementAttributes ++ [MkHTMLAttribute "href" String True]
+a = buildElement "a" AElementAttributes
+
+ImgElementAttributes = HTMLElementAttributes ++ [
+    MkHTMLAttribute "src" String True,
+    MkHTMLAttribute "alt" String False
+]
+img = buildElement "img" ImgElementAttributes
