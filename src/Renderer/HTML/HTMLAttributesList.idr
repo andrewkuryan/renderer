@@ -1,17 +1,17 @@
-module Renderer.HTML.AttributesList
+module Renderer.HTML.HTMLAttributesList
 
 import Data.List
 
 import Renderer.Utils.List
 import Renderer.HTML.HTMLAttribute
-import Renderer.HTML.AttributeValue
+import Renderer.HTML.HTMLAttributeValue
 
 public export
 comparePairs: (String, Type) -> (String, Type) -> Ordering
 comparePairs (name1, _) (name2, _) = compare name1 name2
 
 public export
-attributesToPairs: List HTMLAttribute -> List AttributeValue -> List (String, Type)
+attributesToPairs: List HTMLAttribute -> List HTMLAttributeValue -> List (String, Type)
 attributesToPairs attributes values =
     let (usedAttrs, unusedAttrs) = 
         partition (\attr => containsBy ((== attributeName attr) . valueName) values) attributes in
@@ -19,13 +19,13 @@ attributesToPairs attributes values =
             (map attributeToPair . filter attributeIsRequired) unusedAttrs
 
 public export
-valuesToPairs: List AttributeValue -> List (String, Type)
+valuesToPairs: List HTMLAttributeValue -> List (String, Type)
 valuesToPairs values = (qsort comparePairs . map valueToPair) values
 
 public export
-data AttributesList: List HTMLAttribute -> List AttributeValue -> Type where
-    MkAttributesList: 
+data HTMLAttributesList: List HTMLAttribute -> List HTMLAttributeValue -> Type where
+    MkHTMLAttributesList: 
         (attributes: List HTMLAttribute) -> 
-        (values: List AttributeValue) -> 
+        (values: List HTMLAttributeValue) -> 
         Equal (attributesToPairs attributes values) (valuesToPairs values) ->
-        AttributesList attributes values
+        HTMLAttributesList attributes values

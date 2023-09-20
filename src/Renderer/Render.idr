@@ -5,5 +5,6 @@ import Renderer.HTML.Elements
 %foreign "browser:lambda: (html) => document.body.setHTML(html)"
 prim__render: String -> PrimIO ()
 
+public export
 render: HasIO io => HTMLElement -> io ()
 render content = primIO $ prim__render (show content)

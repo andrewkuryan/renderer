@@ -13,7 +13,11 @@ depends     = base >= 0.6.0
 
 modules     = Renderer.Render,
               Renderer.Utils.List,
-              Renderer.HTML.AttributesList,
-              Renderer.HTML.AttributeValue,
+              Renderer.HTML.HTMLAttributeValue,
+              Renderer.HTML.HTMLAttributesList,
               Renderer.HTML.HTMLAttribute,
-              Renderer.HTML.Elements
+              Renderer.HTML.Elements,
+              Renderer.CSS.StyleAttributeValue,
+              Renderer.CSS.StyleAttributesList,
+              Renderer.CSS.StyleAttribute,
+              Renderer.CSS.Style

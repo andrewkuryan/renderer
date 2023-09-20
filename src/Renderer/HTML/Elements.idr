@@ -4,13 +4,14 @@ import Data.List
 import Data.String
 
 import Renderer.Utils.List
+import Renderer.HTML.HTMLAttributeValue
 import Renderer.HTML.HTMLAttribute
-import Renderer.HTML.AttributeValue
-import Renderer.HTML.AttributesList
+import Renderer.HTML.HTMLAttributesList
+import Renderer.CSS.Style
 
 public export
 data HTMLElement = 
-    MkHTMLElement String (List AttributeValue) (List HTMLElement) 
+    MkHTMLElement String (List HTMLAttributeValue) (List HTMLElement) 
     | MkText String
 
 public export
@@ -26,14 +27,15 @@ public export
 HTMLElementAttributes: List HTMLAttribute
 HTMLElementAttributes = [
     MkHTMLAttribute "id" String False,
-    MkHTMLAttribute "class" String False
+    MkHTMLAttribute "class" String False,
+    MkHTMLAttribute "style" Style False
 ]
 
 buildElement: String -> (attributes: List HTMLAttribute) -> 
     (
-        (values: List AttributeValue) -> 
+        (values: List HTMLAttributeValue) -> 
         (children: List HTMLElement) -> 
-        {auto prf: AttributesList attributes values} -> 
+        {auto prf: HTMLAttributesList attributes values} -> 
         HTMLElement
     )
 buildElement tagName _ = (\values, children => MkHTMLElement tagName values children)    
